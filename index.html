@@ -424,6 +424,48 @@
         </div>
     </section>
 
+
+<!-- MODERATORZY -->
+<section class="sec sec-dark" id="moderators" style="padding-top:80px">
+    <div class="cont">
+        <div class="sec-head">
+            <div class="sec-label" data-aos="fade-up"><iconify-icon icon="mdi:shield-account-outline"></iconify-icon> Moderacja</div>
+            <h2 class="sec-title" data-aos="fade-up">Moderatorzy Kanału <span class="glow-text">Pako</span></h2>
+            <p class="sec-desc" data-aos="fade-up" data-aos-delay="100">Zespół, który dba o porządek, dobrą atmosferę i pomaga społeczności.</p>
+        </div>
+        <div class="mod-grid" id="moderators-container"></div>
+    </div>
+</section>
+
+<!-- SEZON MC -->
+<section class="sec sec-dark" id="season">
+    <div class="cont">
+        <div class="sec-head">
+            <div class="sec-label" data-aos="fade-up"><iconify-icon icon="mdi:pickaxe"></iconify-icon> Serwer</div>
+            <h2 class="sec-title" data-aos="fade-up">Sezon Serwera <span class="glow-text">Minecraft</span></h2>
+        </div>
+        <div id="season-container"></div>
+    </div>
+</section>
+
+<!-- NOWOŚCI -->
+<section class="sec sec-dark" id="news">
+    <div class="cont">
+        <div class="sec-head">
+            <div class="sec-label" data-aos="fade-up"><iconify-icon icon="mdi:newspaper-variant-outline"></iconify-icon> Aktualności</div>
+            <h2 class="sec-title" data-aos="fade-up">Nowości <span class="glow-text">PakoTeam</span></h2>
+            <p class="sec-desc" data-aos="fade-up" data-aos-delay="100">Bądź na bieżąco z najważniejszymi wydarzeniami w naszej społeczności.</p>
+        </div>
+        <div class="news-list" id="news-container"></div>
+    </div>
+</section>
+
+<!-- DONATE -->
+<section class="sec sec-dark" id="donate">
+    <div class="cont">
+        <div id="donate-container"></div>
+    </div>
+</section>    
     <!-- SPOŁECZNOŚĆ -->
     <section class="sec sec-dark" id="community">
         <div class="cont">
@@ -492,6 +534,37 @@ const galleryItems = [
     { title: "Milestone 100", description: "Osiągnięcie 100 członków.", date: "Listopad 2025", image: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
     { title: "Zakończenie Roku", description: "Podsumowanie pierwszego roku.", date: "Grudzień 2025", image: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" }
 ];
+// ==========================================
+// KONFIGURACJA NOWYCH ELEMENTÓW
+// ==========================================
+const DONATE_LINK = "TUTAJ_WKLEJ_LINK";
+
+const moderators = [
+    { minecraftNick: "Moderator #1", discordNick: "mod_discord_1", role: "Moderator kanału", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
+    { minecraftNick: "Moderator #2", discordNick: "mod_discord_2", role: "Pomoc społeczności", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
+    { minecraftNick: "Moderator #3", discordNick: "mod_discord_3", role: "Moderator kanału", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
+    { minecraftNick: "Moderator #4", discordNick: "mod_discord_4", role: "Pomoc techniczna", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
+    { minecraftNick: "Moderator #5", discordNick: "mod_discord_5", role: "Moderator kanału", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" }
+];
+
+const seasonInfo = {
+    number: "Sezon 1",
+    status: "active", // "active" lub "ended"
+    date: "01.05.2025",
+    description: "Pierwszy oficjalny sezon serwera PakoTeam. Skupiamy się na budowaniu bazy, wspólnej eksploracji i tworzeniu pierwszych projektów w naszym świecie.",
+    changes: [
+        "Nowy spawn i strefa startowa",
+        "System ekonomii i handlu",
+        "Wspólne budowle ekipy",
+        "Regularne eventy dla członków"
+    ]
+};
+
+const newsItems = [
+    { title: "Start Sezonu 1!", date: "01 Maj 2025", description: "Oficjalnie odpalamy pierwszy sezon naszego serwera Minecraft. Zapraszamy wszystkich do wspólnej zabawy!", image: "" },
+    { title: "Nowy członek ekipy", date: "15 Kwiecień 2025", description: "Mamy nową osobę w zespole! Witamy na pokładzie i liczymy na świetną współpracę.", image: "" },
+    { title: "Nowy projekt w trakcie", date: "10 Kwiecień 2025", description: "Trwają prace nad tajnym projektem, który soon ujrzy światło dzienne. Bądźcie czujni!", image: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" }
+];    
 
 // ==========================================
 // FUNKCJE POMOCNICZE
@@ -505,6 +578,74 @@ function getImageHtml(url) {
     return `<img src="${url}" alt="Zdjęcie galerii" loading="lazy">`;
 }
 
+// ==========================================
+// GENEROWANIE NOWYCH ELEMENTÓW
+// ==========================================
+function renderModerators() {
+    document.getElementById('moderators-container').innerHTML = moderators.map((m, i) => `
+        <div class="mod-card" data-aos="fade-up" data-aos-delay="${100 + i * 50}">
+            <div class="mod-avatar">${getAvatarHtml(m.avatar, 56)}</div>
+            <div class="mod-role">${m.role}</div>
+            <h4>${m.minecraftNick}</h4>
+            <div class="nicks">
+                <span class="nick"><iconify-icon icon="ic:baseline-discord" style="font-size:.8rem"></iconify-icon> ${m.discordNick}</span>
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderSeason() {
+    const statusClass = seasonInfo.status === 'active' ? 'active' : 'ended';
+    const statusText = seasonInfo.status === 'active' ? 'Aktywny' : 'Zakończony';
+    
+    const changesHtml = seasonInfo.changes.map(c => `
+        <li><iconify-icon icon="mdi:check-circle"></iconify-icon> ${c}</li>
+    `).join('');
+
+    document.getElementById('season-container').innerHTML = `
+        <div class="season-card" data-aos="fade-up">
+            <div class="season-header">
+                <div class="season-num">${seasonInfo.number}</div>
+                <span class="season-status ${statusClass}">${statusText}</span>
+                <div class="season-date"><iconify-icon icon="mdi:calendar-outline" style="vertical-align:middle;margin-right:6px;color:var(--blue)"></iconify-icon>Start: ${seasonInfo.date}</div>
+            </div>
+            <p class="season-desc">${seasonInfo.description}</p>
+            <div class="season-changes-title">Najważniejsze zmiany:</div>
+            <ul class="season-changes-list">${changesHtml}</ul>
+        </div>
+    `;
+}
+
+function renderNews() {
+    document.getElementById('news-container').innerHTML = newsItems.map((n, i) => {
+        const hasImage = n.image && n.image !== "TUTAJ_WKLEJ_LINK_DO_ZDJECIA";
+        const imgHtml = hasImage ? `<img src="${n.image}" alt="${n.title}" class="news-img" loading="lazy">` : '';
+        const noImgClass = hasImage ? '' : 'no-img';
+
+        return `
+            <div class="news-item ${noImgClass}" data-aos="fade-up" data-aos-delay="${100 + i * 50}">
+                ${imgHtml}
+                <div class="news-content">
+                    <div class="news-date"><iconify-icon icon="mdi:clock-outline" style="vertical-align:middle;margin-right:4px"></iconify-icon>${n.date}</div>
+                    <h3>${n.title}</h3>
+                    <p>${n.description}</p>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function renderDonate() {
+    document.getElementById('donate-container').innerHTML = `
+        <div class="donate-box" data-aos="fade-up">
+            <iconify-icon icon="mdi:heart-multiple" class="donate-icon"></iconify-icon>
+            <h2 class="sec-title" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:16px">Wspieraj <span class="glow-text">PakoTeam</span></h2>
+            <p class="sec-desc" style="margin:0 auto">Jeśli chcesz wesprzeć rozwój PakoTeam, możesz to zrobić tutaj. Każda pomoc jest ogromnym wsparciem dla naszych projektów!</p>
+            <a href="${DONATE_LINK}" target="_blank" class="donate-btn"><iconify-icon icon="mdi:coffee-outline" style="font-size:1.2rem"></iconify-icon> Przekaż wsparcie</a>
+        </div>
+    `;
+}
+    
 // ==========================================
 // GENEROWANIE ELEMENTÓW
 // ==========================================
@@ -537,6 +678,12 @@ document.addEventListener("DOMContentLoaded", () => {
     initGalleryLightbox(); initCounters(); initParticles();
 });
 
+// Wywołanie nowych sekcji
+renderModerators();
+renderSeason();
+renderNews();
+renderDonate();
+    
 window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('hidden'), 1800));
 
 // ==========================================
