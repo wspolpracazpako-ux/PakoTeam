@@ -58,7 +58,7 @@
         .nav-cta-btn { background: var(--blue) !important; color: var(--black) !important; padding: 10px 22px !important; border-radius: 50px !important; font-weight: 700 !important; font-size: .8rem !important; box-shadow: var(--glow); transition: all .3s !important; }
         .nav-cta-btn::after { display: none !important; }
         .nav-cta-btn:hover { box-shadow: var(--glow-strong) !important; transform: translateY(-2px); }
-        .hamb { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 8px; z-index: 9002; }
+        .hamb { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 8px; z-index: 9002; cursor: pointer; }
         .hamb span { width: 26px; height: 2px; background: #fff; transition: all .3s; border-radius: 2px; }
         .hamb.on span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
         .hamb.on span:nth-child(2) { opacity: 0; }
@@ -81,11 +81,9 @@
         .sec-head .sec-desc { margin: 0 auto; }
 
         /* --- PRZYCISKI --- */
-        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 36px; border-radius: 50px; font-size: .9rem; font-weight: 700; text-decoration: none; transition: all .4s var(--ease); border: none; font-family: 'Inter', sans-serif; }
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 36px; border-radius: 50px; font-size: .9rem; font-weight: 700; text-decoration: none; transition: all .4s var(--ease); border: none; font-family: 'Inter', sans-serif; cursor: pointer; }
         .btn-glow { background: var(--blue); color: var(--black); box-shadow: var(--glow); }
         .btn-glow:hover { box-shadow: var(--glow-strong); transform: translateY(-3px); }
-        .btn-ghost { background: transparent; color: var(--white); border: 1.5px solid rgba(79,195,247,0.25); }
-        .btn-ghost:hover { border-color: var(--blue); background: rgba(79,195,247,0.06); box-shadow: var(--glow); transform: translateY(-3px); }
         .discord-btn { display: inline-flex; align-items: center; gap: 12px; padding: 20px 48px; border-radius: 50px; background: var(--blue); color: var(--black); font-size: 1.05rem; font-weight: 800; text-decoration: none; transition: all .4s var(--ease); box-shadow: var(--glow-strong); font-family: 'Space Grotesk', 'Inter', sans-serif; }
         .discord-btn:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 0 60px rgba(79,195,247,0.5); }
         .discord-btn iconify-icon { font-size: 1.4rem; }
@@ -125,6 +123,61 @@
         .about-stat-label { font-size: .78rem; color: var(--gray); margin-top: 6px; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; }
         @media(max-width:900px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } .about-stats { flex-direction: row; flex-wrap: wrap; } .about-stat { flex: 1; min-width: 140px; } }
 
+        /* --- O PAKO --- */
+        .pako-main-grid { display: grid; grid-template-columns: 320px 1fr; gap: 60px; align-items: center; max-width: 1000px; margin: 0 auto; }
+        .pako-bio-card { background: var(--glass); border: 1px solid rgba(79,195,247,0.2); border-radius: var(--radius-lg); padding: 40px; text-align: center; position: relative; overflow: hidden; box-shadow: var(--glow); }
+        .pako-bio-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--blue), transparent); box-shadow: 0 0 20px var(--blue); }
+        .pako-bio-avatar { width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 24px; overflow: hidden; border: 3px solid rgba(79,195,247,0.3); box-shadow: var(--glow); }
+        .pako-bio-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .pako-bio-card h3 { font-size: 1.5rem; font-weight: 900; margin-bottom: 16px; }
+        .pako-bio-nicks { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+        .pako-bio-text { color: rgba(255,255,255,0.6); font-size: .95rem; line-height: 1.8; margin-top: 24px; }
+        .pako-history h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 24px; color: var(--white); }
+        .pako-history p { color: var(--gray); font-size: .95rem; line-height: 1.9; margin-bottom: 20px; }
+        .pako-history p:last-child { margin-bottom: 0; }
+        .pako-info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 1000px; margin: 0 auto; }
+        .pako-info-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 28px 20px; text-align: center; transition: all .4s var(--ease); }
+        .pako-info-card:hover { transform: translateY(-6px); border-color: rgba(79,195,247,0.3); box-shadow: var(--glow); }
+        .pako-info-card iconify-icon { font-size: 2rem; color: var(--blue); margin-bottom: 14px; display: block; }
+        .pako-info-card span { font-size: .9rem; font-weight: 600; color: rgba(255,255,255,0.8); }
+        .pako-goals-box { background: var(--glass); border: 1px solid rgba(79,195,247,0.2); border-radius: var(--radius-lg); padding: 48px; text-align: center; position: relative; overflow: hidden; max-width: 900px; margin: 0 auto; box-shadow: var(--glow); }
+        .pako-goals-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--blue), transparent); box-shadow: 0 0 20px var(--blue); }
+        .pako-goals-box h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 20px; }
+        .pako-goals-box p { font-size: 1.05rem; color: rgba(255,255,255,0.7); line-height: 1.9; max-width: 700px; margin: 0 auto; }
+        
+        /* Ciekawostki */
+        .pako-facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1000px; margin: 0 auto; }
+        .pako-fact-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 24px 16px; text-align: center; transition: all .4s var(--ease); }
+        .pako-fact-card:hover { transform: translateY(-6px); border-color: rgba(79,195,247,0.3); box-shadow: var(--glow); }
+        .pako-fact-card iconify-icon { font-size: 1.8rem; color: var(--blue); margin-bottom: 12px; display: block; }
+        .pako-fact-label { font-size: .7rem; color: var(--gray); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; font-weight: 600; }
+        .pako-fact-value { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--white); }
+        
+        /* Oś czasu */
+        .timeline { position: relative; max-width: 900px; margin: 0 auto; padding: 20px 0; }
+        .timeline::after { content: ''; position: absolute; width: 2px; background: linear-gradient(to bottom, transparent, var(--blue), transparent); top: 0; bottom: 0; left: 50%; margin-left: -1px; box-shadow: 0 0 10px rgba(79,195,247,0.2); }
+        .timeline-item { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; box-sizing: border-box; }
+        .timeline-item.left { left: 0; }
+        .timeline-item.right { left: 50%; }
+        .timeline-item::after { content: ''; position: absolute; width: 16px; height: 16px; right: -8px; background-color: var(--bg); border: 3px solid var(--blue); top: 30px; border-radius: 50%; z-index: 1; box-shadow: var(--glow); transition: all .3s; }
+        .timeline-item.right::after { left: -8px; }
+        .timeline-item:hover::after { background: var(--blue); transform: scale(1.2); }
+        .timeline-content { padding: 24px 28px; background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius); position: relative; transition: all .4s var(--ease); }
+        .timeline-item:hover .timeline-content { border-color: rgba(79,195,247,0.3); box-shadow: var(--glow); transform: translateY(-4px); }
+        .timeline-date { font-size: .75rem; color: var(--blue); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+        .timeline-content h4 { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; }
+        .timeline-content p { font-size: .88rem; color: var(--gray); line-height: 1.7; }
+        @media(max-width:768px) {
+            .timeline::after { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 50px; padding-right: 20px; }
+            .timeline-item.right { left: 0; }
+            .timeline-item::after { left: 12px; right: auto; }
+            .timeline-item.right::after { left: 12px; }
+            .pako-main-grid { grid-template-columns: 1fr; gap: 40px; }
+            .pako-info-grid, .pako-facts-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media(max-width:480px) { .pako-info-grid, .pako-facts-grid { grid-template-columns: 1fr; } }
+
         /* --- EKIPA --- */
         .team-founder { max-width: 800px; margin: 0 auto 48px; background: var(--glass); border: 1px solid rgba(79,195,247,0.2); border-radius: var(--radius-lg); padding: 48px; position: relative; overflow: hidden; box-shadow: var(--glow); }
         .team-founder::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--blue), transparent); box-shadow: 0 0 20px var(--blue); }
@@ -140,16 +193,17 @@
         .team-founder-info p { color: rgba(255,255,255,0.55); font-size: .92rem; line-height: 1.8; }
         .team-section-label { text-align: center; color: var(--gray); font-size: .9rem; margin-bottom: 36px; font-style: italic; }
         .team-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-        .team-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 32px 20px; text-align: center; transition: all .4s var(--ease); }
+        .team-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 32px 20px; text-align: center; transition: all .4s var(--ease); display: flex; flex-direction: column; align-items: center; }
         .team-card:hover { transform: translateY(-8px); border-color: rgba(79,195,247,0.3); box-shadow: var(--glow); }
-        .team-card-avatar { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 16px; overflow: hidden; border: 2px solid rgba(79,195,247,0.15); transition: all .4s; }
+        .team-card-avatar { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 16px; overflow: hidden; border: 2px solid rgba(79,195,247,0.15); transition: all .4s; flex-shrink: 0; }
         .team-card:hover .team-card-avatar { border-color: rgba(79,195,247,0.4); box-shadow: var(--glow); }
         .team-card-avatar img { width: 100%; height: 100%; object-fit: cover; }
         .team-card h4 { font-size: .95rem; font-weight: 700; margin-bottom: 10px; }
-        .team-card .nicks { display: flex; flex-direction: column; gap: 6px; align-items: center; }
-        @media(max-width:1100px) { .team-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media(max-width:700px) { .team-grid { grid-template-columns: repeat(2, 1fr); } .team-founder-inner { flex-direction: column; text-align: center; } .team-founder-info .nicks { justify-content: center; } .team-founder-avatar { margin: 0 auto; } }
-        @media(max-width:480px) { .team-grid { grid-template-columns: 1fr; } }
+        .team-card .nicks { display: flex; flex-direction: column; gap: 6px; align-items: center; margin-bottom: 12px; }
+        .team-card-desc { font-size: .8rem; color: var(--gray); line-height: 1.6; margin-bottom: 16px; flex-grow: 1; }
+        .member-date { font-size: .7rem; color: var(--blue); font-weight: 600; display: inline-flex; align-items: center; gap: 6px; background: rgba(79,195,247,0.06); padding: 4px 12px; border-radius: 50px; border: 1px solid rgba(79,195,247,0.1); margin-top: auto; }
+        .member-date iconify-icon { font-size: .85rem; }
+        
         .new-members-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
         .new-member-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); padding: 24px 14px; text-align: center; transition: all .4s var(--ease); }
         .new-member-card:hover { transform: translateY(-6px); border-color: rgba(79,195,247,0.25); box-shadow: var(--glow); }
@@ -159,8 +213,28 @@
         .new-member-card h4 { font-size: .82rem; font-weight: 700; margin-bottom: 8px; }
         .new-member-card .nicks { display: flex; flex-direction: column; gap: 4px; align-items: center; }
         .new-member-card .nick { font-size: .65rem; padding: 3px 8px; }
+        @media(max-width:1100px) { .team-grid { grid-template-columns: repeat(3, 1fr); } }
         @media(max-width:900px) { .new-members-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media(max-width:520px) { .new-members-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media(max-width:700px) { .team-grid { grid-template-columns: repeat(2, 1fr); } .team-founder-inner { flex-direction: column; text-align: center; } .team-founder-info .nicks { justify-content: center; } .team-founder-avatar { margin: 0 auto; } }
+        @media(max-width:520px) { .team-grid { grid-template-columns: 1fr; } .new-members-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        /* --- MODERATORZY --- */
+        .mod-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+        .mod-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 32px 20px; text-align: center; transition: all .4s var(--ease); position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; }
+        .mod-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--blue), transparent); opacity: 0; transition: opacity .4s; }
+        .mod-card:hover { transform: translateY(-8px); border-color: rgba(79,195,247,0.3); box-shadow: var(--glow); }
+        .mod-card:hover::after { opacity: 1; }
+        .mod-avatar { width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 16px; overflow: hidden; border: 2px solid rgba(79,195,247,0.15); transition: all .4s; flex-shrink: 0; }
+        .mod-card:hover .mod-avatar { border-color: rgba(79,195,247,0.4); box-shadow: var(--glow); }
+        .mod-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .mod-role { display: inline-block; background: rgba(79,195,247,0.08); border: 1px solid rgba(79,195,247,0.15); color: var(--blue); font-size: .6rem; font-weight: 700; padding: 4px 12px; border-radius: 50px; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 12px; }
+        .mod-card h4 { font-size: .9rem; font-weight: 700; margin-bottom: 10px; }
+        .mod-card .nicks { display: flex; flex-direction: column; gap: 6px; align-items: center; margin-bottom: 12px; }
+        .mod-card .nick { font-size: .65rem; padding: 3px 10px; }
+        .mod-desc { font-size: .8rem; color: var(--gray); line-height: 1.6; margin-bottom: 16px; flex-grow: 1; }
+        @media(max-width:1100px) { .mod-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media(max-width:700px) { .mod-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media(max-width:480px) { .mod-grid { grid-template-columns: 1fr; } }
 
         /* --- PROJEKTY --- */
         .projects-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -176,9 +250,29 @@
         @media(max-width:1024px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
         @media(max-width:520px) { .projects-grid { grid-template-columns: 1fr; } }
 
+        /* --- SEZON MC --- */
+        .season-card { background: var(--glass); border: 1px solid rgba(79,195,247,0.2); border-radius: var(--radius-lg); padding: 48px; position: relative; overflow: hidden; max-width: 900px; margin: 0 auto; box-shadow: var(--glow); }
+        .season-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--blue), transparent); box-shadow: 0 0 20px var(--blue); }
+        .season-header { display: flex; align-items: center; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; }
+        .season-num { font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; font-weight: 900; color: var(--white); line-height: 1; }
+        .season-status { padding: 8px 18px; border-radius: 50px; font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; display: inline-flex; align-items: center; gap: 8px; }
+        .season-status.active { background: rgba(79,195,247,0.1); color: var(--blue); border: 1px solid rgba(79,195,247,0.3); box-shadow: var(--glow); }
+        .season-status.ended { background: rgba(255,255,255,0.05); color: var(--gray); border: 1px solid rgba(255,255,255,0.1); }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 10px var(--blue); animation: pulse 2s infinite; }
+        .season-status.ended .status-dot { background: var(--gray); box-shadow: none; animation: none; }
+        .season-date { font-size: .9rem; color: var(--gray); margin-left: auto; display: flex; align-items: center; gap: 8px; }
+        .season-desc { font-size: 1.05rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 32px; border-left: 3px solid rgba(79,195,247,0.3); padding-left: 24px; }
+        .season-changes-title { font-size: .85rem; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; }
+        .season-changes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .season-change-item { background: rgba(79,195,247,0.04); border: 1px solid rgba(79,195,247,0.08); border-radius: var(--radius-sm); padding: 16px 20px; display: flex; align-items: center; gap: 12px; transition: all .3s; }
+        .season-change-item:hover { border-color: rgba(79,195,247,0.2); background: rgba(79,195,247,0.06); }
+        .season-change-item iconify-icon { color: var(--blue); font-size: 1.2rem; flex-shrink: 0; }
+        .season-change-item span { font-size: .9rem; color: rgba(255,255,255,0.7); }
+        @media(max-width:700px) { .season-header { flex-direction: column; align-items: flex-start; } .season-date { margin-left: 0; } .season-card { padding: 32px 24px; } .season-changes-grid { grid-template-columns: 1fr; } }
+
         /* --- GALERIA --- */
         .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-        .gallery-item { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3; transition: all .4s var(--ease); }
+        .gallery-item { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3; transition: all .4s var(--ease); cursor: pointer; }
         .gallery-item:hover { transform: translateY(-4px); box-shadow: var(--glow); }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
         .gallery-item:hover img { transform: scale(1.08); }
@@ -199,8 +293,23 @@
         .lb-info { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); text-align: center; max-width: 500px; }
         .lb-info h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
         .lb-info p { font-size: .85rem; color: var(--gray); }
-        .lb-close { position: absolute; top: 24px; right: 24px; width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #fff; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; transition: all .3s; }
+        .lb-close { position: absolute; top: 24px; right: 24px; width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #fff; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; transition: all .3s; cursor: pointer; }
         .lb-close:hover { background: rgba(79,195,247,0.15); border-color: rgba(79,195,247,0.3); transform: rotate(90deg); }
+
+        /* --- NOWOŚCI --- */
+        .news-list { display: flex; flex-direction: column; gap: 24px; max-width: 900px; margin: 0 auto; }
+        .news-item { background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius); overflow: hidden; display: grid; grid-template-columns: 240px 1fr; transition: all .4s var(--ease); position: relative; }
+        .news-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--blue); opacity: 0; transition: opacity .4s; box-shadow: var(--glow); }
+        .news-item:hover { border-color: rgba(79,195,247,0.3); box-shadow: var(--glow); transform: translateX(8px); }
+        .news-item:hover::before { opacity: 1; }
+        .news-img { width: 100%; height: 100%; object-fit: cover; min-height: 220px; }
+        .news-content { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+        .news-date { font-size: .72rem; color: var(--blue); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .news-content h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; }
+        .news-content p { font-size: .92rem; color: var(--gray); line-height: 1.8; }
+        .news-item.no-img { grid-template-columns: 1fr; }
+        .news-item.no-img .news-content { padding: 28px 32px; }
+        @media(max-width:700px) { .news-item { grid-template-columns: 1fr; } .news-img { height: 200px; } }
 
         /* --- DLACZEGO PAKOTEAM --- */
         .why-content { max-width: 780px; margin: 0 auto; text-align: center; }
@@ -219,13 +328,21 @@
         .faq-item { border-radius: var(--radius); border: 1px solid var(--glass-border); background: var(--glass); overflow: hidden; transition: all .4s var(--ease); }
         .faq-item:hover { border-color: rgba(79,195,247,0.2); }
         .faq-item.active { border-color: rgba(79,195,247,0.25); background: rgba(79,195,247,0.04); box-shadow: 0 0 20px rgba(79,195,247,0.06); }
-        .faq-q { display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; transition: all .3s; user-select: none; gap: 16px; }
+        .faq-q { display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; transition: all .3s; user-select: none; gap: 16px; cursor: pointer; }
         .faq-q h3 { font-size: .95rem; font-weight: 600; flex: 1; }
         .faq-icon { width: 30px; height: 30px; border-radius: 50%; background: rgba(79,195,247,0.08); display: flex; align-items: center; justify-content: center; color: var(--blue); font-size: 1.1rem; transition: all .4s var(--ease); flex-shrink: 0; }
         .faq-item.active .faq-icon { transform: rotate(45deg); background: var(--blue); color: var(--black); box-shadow: var(--glow); }
         .faq-a { max-height: 0; overflow: hidden; transition: max-height .5s var(--ease); }
         .faq-item.active .faq-a { max-height: 250px; }
         .faq-a-inner { padding: 0 28px 22px; font-size: .9rem; color: var(--gray); line-height: 1.8; }
+
+        /* --- DONATE --- */
+        .donate-box { background: var(--glass); border: 1px solid rgba(79,195,247,0.2); border-radius: var(--radius-lg); padding: 64px 40px; text-align: center; position: relative; overflow: hidden; max-width: 700px; margin: 0 auto; box-shadow: var(--glow); }
+        .donate-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--blue), transparent); box-shadow: 0 0 20px var(--blue); }
+        .donate-box::after { content: ''; position: absolute; bottom: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(79,195,247,0.05) 0%, transparent 70%); pointer-events: none; }
+        .donate-icon { font-size: 3.5rem; color: var(--blue); margin-bottom: 24px; display: block; text-shadow: var(--glow-text); position: relative; z-index: 1; }
+        .donate-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 44px; border-radius: 50px; background: transparent; color: var(--blue); font-size: 1rem; font-weight: 800; text-decoration: none; border: 2px solid var(--blue); transition: all .4s var(--ease); font-family: 'Space Grotesk', sans-serif; box-shadow: var(--glow); margin-top: 28px; position: relative; z-index: 1; }
+        .donate-btn:hover { background: var(--blue); color: var(--black); box-shadow: var(--glow-strong); transform: translateY(-4px) scale(1.02); }
 
         /* --- STOPKA --- */
         .footer { position: relative; z-index: 1; border-top: 1px solid rgba(79,195,247,0.06); padding: 80px 0 40px; }
@@ -247,11 +364,11 @@
         @media(max-width:900px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
         @media(max-width:520px) { .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; align-items: center; text-align: center; } }
 
-        .stt { position: fixed; bottom: 28px; right: 28px; width: 50px; height: 50px; border-radius: 50%; background: var(--glass); border: 1px solid rgba(79,195,247,0.2); color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; z-index: 8999; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all .4s var(--ease); backdrop-filter: blur(12px); }
+        .stt { position: fixed; bottom: 28px; right: 28px; width: 50px; height: 50px; border-radius: 50%; background: var(--glass); border: 1px solid rgba(79,195,247,0.2); color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; z-index: 8999; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all .4s var(--ease); backdrop-filter: blur(12px); cursor: pointer; }
         .stt.vis { opacity: 1; visibility: visible; transform: translateY(0); }
         .stt:hover { background: var(--blue); color: var(--black); box-shadow: var(--glow-strong); transform: translateY(-4px); }
 
-        .img-placeholder { background: rgba(79,195,247,0.05); border: 2px dashed rgba(79,195,247,0.15); display: flex; align-items: center; justify-content: center; color: rgba(79,195,247,0.2); overflow: hidden; width: 100%; height: 100%; position: absolute; inset: 0; }
+        .img-placeholder { background: rgba(79,195,247,0.05); border: 2px dashed rgba(79,195,247,0.15); display: flex; align-items: center; justify-content: center; color: rgba(79,195,247,0.3); overflow: hidden; width: 100%; height: 100%; position: absolute; inset: 0; }
         .img-placeholder iconify-icon { pointer-events: none; }
     </style>
 </head>
@@ -280,6 +397,7 @@
                 <li><a href="#team">Ekipa</a></li>
                 <li><a href="#projects">Projekty</a></li>
                 <li><a href="#gallery">Momenty</a></li>
+                <li><a href="#news">Aktualności</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#community" class="nav-cta-btn link-discord">Dołącz</a></li>
             </ul>
@@ -292,6 +410,7 @@
         <a href="#team" onclick="closeMob()">Ekipa</a>
         <a href="#projects" onclick="closeMob()">Projekty</a>
         <a href="#gallery" onclick="closeMob()">Momenty</a>
+        <a href="#news" onclick="closeMob()">Aktualności</a>
         <a href="#faq" onclick="closeMob()">FAQ</a>
         <a href="#community" onclick="closeMob()" class="link-discord" style="color:var(--blue)">Dołącz</a>
     </div>
@@ -317,7 +436,7 @@
     </section>
 
     <!-- O NAS -->
-    <section class="sec sec-dark" id="about">
+    <section class="sec" id="about">
         <div class="cont">
             <div class="about-grid">
                 <div>
@@ -327,23 +446,48 @@
                     <h3 style="font-size:1.15rem;font-weight:700;margin-top:36px;margin-bottom:4px" data-aos="fade-up" data-aos-delay="150">Co robimy?</h3>
                     <div class="about-list">
                         <div class="about-list-item" data-aos="fade-up" data-aos-delay="200"><iconify-icon icon="mdi:check-circle"></iconify-icon><p>Tworzymy projekty, rozwijamy społeczność i wspólnie realizujemy nowe pomysły.</p></div>
-                        <div class="about-list-item" data-aos="fade-up" data-aos-delay="250"><iconify-icon icon="mdi:check-circle"></iconify-icon><p>Roimy filmy z gry Minecraft przy czym dobrze się bawimy.</p></div>
+                        <div class="about-list-item" data-aos="fade-up" data-aos-delay="250"><iconify-icon icon="mdi:check-circle"></iconify-icon><p>Robimy filmy z gry Minecraft przy czym dobrze się bawimy.</p></div>
                         <div class="about-list-item" data-aos="fade-up" data-aos-delay="300"><iconify-icon icon="mdi:check-circle"></iconify-icon><p>Spędzamy razem czas, tworząc wyjątkowe wspomnienia i historie.</p></div>
                         <div class="about-list-item" data-aos="fade-up" data-aos-delay="350"><iconify-icon icon="mdi:check-circle"></iconify-icon><p>Nieustannie rozwijamy PakoTeam, aby stawało się coraz lepszym miejscem dla wszystkich.</p></div>
                     </div>
                 </div>
                 <div class="about-stats" data-aos="fade-left" data-aos-delay="200">
                     <div class="about-stat"><div class="about-stat-num">2025</div><div class="about-stat-label">Założenie</div></div>
-                    <div class="about-stat"><div class="about-stat-num"><span class="counter" data-target="+10">0</span>+</div><div class="about-stat-label">Członkowie Ekipy</div></div>
-                    <div class="about-stat"><div class="about-stat-num"><span class="counter" data-target="+20">0</span>+</div><div class="about-stat-label">Wspólne Projekty</div></div>
-                    <div class="about-stat"><div class="about-stat-num"><span class="counter" data-target="+2000">0</span>+</div><div class="about-stat-label">Wspólne nagrane Filmy</div></div>
+                    <div class="about-stat"><div class="about-stat-num"><span class="counter" data-target="10">0</span>+</div><div class="about-stat-label">Członkowie Ekipy</div></div>
+                    <div class="about-stat"><div class="about-stat-num"><span class="counter" data-target="20">0</span>+</div><div class="about-stat-label">Wspólne Projekty</div></div>
+                    <div class="about-stat"><div class="about-stat-num"><span class="counter" data-target="2000">0</span>+</div><div class="about-stat-label">Nagrane Filmy</div></div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- O PAKO -->
+    <section class="sec" id="about-pako" style="padding-top: 80px;">
+        <div class="cont">
+            <div class="sec-head">
+                <div class="sec-label" data-aos="fade-up"><iconify-icon icon="mdi:account-star-outline"></iconify-icon> Założyciel</div>
+                <h2 class="sec-title" data-aos="fade-up">Poznaj <span class="glow-text">Pako</span></h2>
+            </div>
+            
+            <div id="pako-main-container"></div>
+
+            <div style="margin-top: 80px;" id="pako-info-container"></div>
+
+            <div style="margin-top: 80px;" id="pako-facts-container"></div>
+
+            <div style="margin-top: 80px;" id="pako-goals-container"></div>
+
+            <div style="margin-top: 100px;">
+                <div class="sec-head">
+                    <h2 class="sec-title" data-aos="fade-up" style="font-size:clamp(1.6rem,3.5vw,2.4rem)">Moja <span class="glow-text">Historia</span></h2>
+                </div>
+                <div id="pako-timeline-container"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- EKIPA -->
-    <section class="sec sec-dark" id="team" style="padding-top:80px">
+    <section class="sec" id="team" style="padding-top:80px">
         <div class="cont">
             <div class="sec-head">
                 <div class="sec-label" data-aos="fade-up"><iconify-icon icon="mdi:shield-star-outline"></iconify-icon> Ekipa</div>
@@ -352,7 +496,8 @@
             <div id="founder-container"></div>
             <p class="team-section-label" data-aos="fade-up">To najbardziej doświadczeni i zasłużeni członkowie PakoTeam, którzy od dłuższego czasu pomagają rozwijać ekipę i mają ogromny wkład w jej historię.</p>
             <div class="team-grid" id="main-members-container"></div>
-            <div style="margin-top:80px">
+            
+            <div style="margin-top:100px">
                 <div class="sec-head">
                     <h2 class="sec-title" data-aos="fade-up" style="font-size:clamp(1.6rem,3.5vw,2.4rem)">Nowi Członkowie <span class="glow-text">PakoTeam</span></h2>
                     <p class="sec-desc" data-aos="fade-up" data-aos-delay="100">Każdy nowy członek wnosi do naszej społeczności nowe pomysły, energię i możliwości.</p>
@@ -362,8 +507,20 @@
         </div>
     </section>
 
+    <!-- MODERATORZY -->
+    <section class="sec" id="moderators" style="padding-top:80px">
+        <div class="cont">
+            <div class="sec-head">
+                <div class="sec-label" data-aos="fade-up"><iconify-icon icon="mdi:shield-account-outline"></iconify-icon> Moderacja</div>
+                <h2 class="sec-title" data-aos="fade-up">Moderatorzy Kanału <span class="glow-text">Pako</span></h2>
+                <p class="sec-desc" data-aos="fade-up" data-aos-delay="100">Zespół, który dba o porządek, dobrą atmosferę i pomaga społeczności na co dzień.</p>
+            </div>
+            <div class="mod-grid" id="moderators-container"></div>
+        </div>
+    </section>
+
     <!-- PROJEKTY -->
-    <section class="sec sec-dark" id="projects">
+    <section class="sec" id="projects">
         <div class="cont">
             <div class="sec-head">
                 <div class="sec-label" data-aos="fade-up"><iconify-icon icon="mdi:rocket-launch-outline"></iconify-icon> Projekty</div>
@@ -378,8 +535,19 @@
         </div>
     </section>
 
+    <!-- SEZON MC -->
+    <section class="sec" id="season">
+        <div class="cont">
+            <div class="sec-head">
+                <div class="sec-label" data-aos="fade-up"><iconify-icon icon="mdi:pickaxe"></iconify-icon> Serwer</div>
+                <h2 class="sec-title" data-aos="fade-up">Sezon Serwera <span class="glow-text">Minecraft</span></h2>
+            </div>
+            <div id="season-container"></div>
+        </div>
+    </section>
+
     <!-- GALERIA -->
-    <section class="sec sec-dark" id="gallery">
+    <section class="sec" id="gallery">
         <div class="cont">
             <div class="sec-head">
                 <div class="sec-label" data-aos="fade-up"><iconify-icon icon="mdi:image-multiple-outline"></iconify-icon> Galeria</div>
@@ -389,8 +557,20 @@
         </div>
     </section>
 
+    <!-- NOWOŚCI -->
+    <section class="sec" id="news">
+        <div class="cont">
+            <div class="sec-head">
+                <div class="sec-label" data-aos="fade-up"><iconify-icon icon="mdi:newspaper-variant-outline"></iconify-icon> Aktualności</div>
+                <h2 class="sec-title" data-aos="fade-up">Nowości <span class="glow-text">PakoTeam</span></h2>
+                <p class="sec-desc" data-aos="fade-up" data-aos-delay="100">Bądź na bieżąco z najważniejszymi wydarzeniami w naszej społeczności.</p>
+            </div>
+            <div class="news-list" id="news-container"></div>
+        </div>
+    </section>
+
     <!-- DLACZEGO -->
-    <section class="sec sec-dark" id="why">
+    <section class="sec" id="why">
         <div class="cont">
             <div class="why-content">
                 <div class="sec-label" data-aos="fade-up" style="justify-content:center"><iconify-icon icon="mdi:star-four-points-outline"></iconify-icon> Dlaczego My</div>
@@ -407,67 +587,25 @@
     </section>
 
     <!-- FAQ -->
-    <section class="sec sec-dark" id="faq">
+    <section class="sec" id="faq">
         <div class="cont">
             <div class="sec-head">
                 <div class="sec-label" data-aos="fade-up"><iconify-icon icon="mdi:frequently-asked-questions"></iconify-icon> FAQ</div>
                 <h2 class="sec-title" data-aos="fade-up">Często Zadawane <span class="glow-text">Pytania</span></h2>
             </div>
-            <div class="faq-list">
-                <div class="faq-item active" data-aos="fade-up" data-aos-delay="100"><div class="faq-q" onclick="toggleFaq(this)"><h3>Czym jest PakoTeam?</h3><div class="faq-icon"><iconify-icon icon="mdi:plus"></iconify-icon></div></div><div class="faq-a"><div class="faq-a-inner">PakoTeam to społeczność osób, którzy chcą tworzyć razem filmiki i także społczeność minecraft.</div></div></div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="150"><div class="faq-q" onclick="toggleFaq(this)"><h3>Jak mogę dołączyć?</h3><div class="faq-icon"><iconify-icon icon="mdi:plus"></iconify-icon></div></div><div class="faq-a"><div class="faq-a-inner">Jak narazie nie szukamy nowych osób, ale zawsze możesz dołaczyć na nasz Serwer Discord.</div></div></div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="200"><div class="faq-q" onclick="toggleFaq(this)"><h3>W jakim wieku są członkowie Ekipy PT?</h3><div class="faq-icon"><iconify-icon icon="mdi:plus"></iconify-icon></div></div><div class="faq-a"><div class="faq-a-inner">Właściciel PT ma 19 lat, a członkowie mają od 12 do 19 lat</div></div></div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="250"><div class="faq-q" onclick="toggleFaq(this)"><h3>Jakie są cele ekipy?</h3><div class="faq-icon"><iconify-icon icon="mdi:plus"></iconify-icon></div></div><div class="faq-a"><div class="faq-a-inner">Budowanie silnej społeczności i realizowanie ciekawych projektów.</div></div></div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="300"><div class="faq-q" onclick="toggleFaq(this)"><h3>Gdzie mogę śledzić rozwój projektu?</h3><div class="faq-icon"><iconify-icon icon="mdi:plus"></iconify-icon></div></div><div class="faq-a"><div class="faq-a-inner">Na YouTube właściciela i członków ekipy i przede wszystkim na Discordzie.</div></div></div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="350"><div class="faq-q" onclick="toggleFaq(this)"><h3>Czy mogę zaprosić znajomych?</h3><div class="faq-icon"><iconify-icon icon="mdi:plus"></iconify-icon></div></div><div class="faq-a"><div class="faq-a-inner">Oczywiście! Śmiało udostępniaj link do naszego Discorda.</div></div></div>
-            </div>
+            <div class="faq-list" id="faq-container"></div>
         </div>
     </section>
 
-
-<!-- MODERATORZY -->
-<section class="sec sec-dark" id="moderators" style="padding-top:80px">
-    <div class="cont">
-        <div class="sec-head">
-            <div class="sec-label" data-aos="fade-up"><iconify-icon icon="mdi:shield-account-outline"></iconify-icon> Moderacja</div>
-            <h2 class="sec-title" data-aos="fade-up">Moderatorzy Kanału <span class="glow-text">Pako</span></h2>
-            <p class="sec-desc" data-aos="fade-up" data-aos-delay="100">Zespół, który dba o porządek, dobrą atmosferę i pomaga społeczności.</p>
+    <!-- DONATE -->
+    <section class="sec" id="donate">
+        <div class="cont">
+            <div id="donate-container"></div>
         </div>
-        <div class="mod-grid" id="moderators-container"></div>
-    </div>
-</section>
+    </section>
 
-<!-- SEZON MC -->
-<section class="sec sec-dark" id="season">
-    <div class="cont">
-        <div class="sec-head">
-            <div class="sec-label" data-aos="fade-up"><iconify-icon icon="mdi:pickaxe"></iconify-icon> Serwer</div>
-            <h2 class="sec-title" data-aos="fade-up">Sezon Serwera <span class="glow-text">Minecraft</span></h2>
-        </div>
-        <div id="season-container"></div>
-    </div>
-</section>
-
-<!-- NOWOŚCI -->
-<section class="sec sec-dark" id="news">
-    <div class="cont">
-        <div class="sec-head">
-            <div class="sec-label" data-aos="fade-up"><iconify-icon icon="mdi:newspaper-variant-outline"></iconify-icon> Aktualności</div>
-            <h2 class="sec-title" data-aos="fade-up">Nowości <span class="glow-text">PakoTeam</span></h2>
-            <p class="sec-desc" data-aos="fade-up" data-aos-delay="100">Bądź na bieżąco z najważniejszymi wydarzeniami w naszej społeczności.</p>
-        </div>
-        <div class="news-list" id="news-container"></div>
-    </div>
-</section>
-
-<!-- DONATE -->
-<section class="sec sec-dark" id="donate">
-    <div class="cont">
-        <div id="donate-container"></div>
-    </div>
-</section>    
     <!-- SPOŁECZNOŚĆ -->
-    <section class="sec sec-dark" id="community">
+    <section class="sec" id="community">
         <div class="cont">
             <div class="community-cta" style="text-align:center;max-width:600px;margin:0 auto">
                 <div class="sec-label" data-aos="fade-up" style="justify-content:center"><iconify-icon icon="ic:baseline-discord"></iconify-icon> Społeczność</div>
@@ -485,10 +623,15 @@
                 <div class="footer-brand"><a href="#hero" class="nav-logo">Pako<span>Team</span></a><p>Społeczność ludzi połączonych wspólną pasją, kreatywnością i chęcią tworzenia czegoś wyjątkowego.</p></div>
                 <div class="footer-col"><h4>Nawigacja</h4><a href="#about">O Nas</a><a href="#team">Ekipa</a><a href="#projects">Projekty</a><a href="#gallery">Momenty</a><a href="#faq">FAQ</a></div>
                 <div class="footer-col footer-discord"><h4>Discord Społeczności</h4><p style="color:rgba(255,255,255,0.35);font-size:.85rem;line-height:1.7;margin-bottom:16px">Dołącz do naszego serwera.</p><a href="#" class="discord-btn link-discord" style="font-size:.82rem;padding:12px 24px"><iconify-icon icon="ic:baseline-discord"></iconify-icon> Dołącz do Discorda PakoTeam</a></div>
-                <div class="footer-col"><h4>Social Media Właściciela</h4><a href="#" class="link-youtube"><iconify-icon icon="mdi:youtube" style="color:#ff4444;margin-right:6px"></iconify-icon> YouTube</a><a href="#" class="link-tiktok"><iconify-icon icon="ic:baseline-tiktok" style="margin-right:6px"></iconify-icon> TikTok</a><a href="#" class="link-discord"><iconify-icon icon="ic:baseline-discord" style="color:#5865F2;margin-right:6px"></iconify-icon> Discord</a><a href="#"
+                <div class="footer-col">
+                    <h4>Social Media Pako</h4>
+                    <a href="#" class="link-youtube"><iconify-icon icon="mdi:youtube" style="color:#ff4444;margin-right:6px"></iconify-icon> YouTube Pako</a>
+                    <a href="#" class="link-tiktok"><iconify-icon icon="ic:baseline-tiktok" style="margin-right:6px"></iconify-icon> TikTok Pako</a>
+                    <a href="#" class="link-discord"><iconify-icon icon="ic:baseline-discord" style="color:#5865F2;margin-right:6px"></iconify-icon> Discord Pako</a>
+                </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 PakoTeam. Wszelkie prawa zastrzeżone.</p>
+                <p>© 2025 PakoTeam. Wszelkie prawa zastrzeżone.</p>
                 <div class="visit-counter"><iconify-icon icon="mdi:eye-outline"></iconify-icon> Odwiedziny: <span class="count" id="visitCount">0</span></div>
                 <div class="footer-socials">
                     <a href="#" class="link-youtube" aria-label="YouTube"><iconify-icon icon="mdi:youtube"></iconify-icon></a>
@@ -505,17 +648,75 @@
 
 <script>
 // ==========================================
-// KONFIGURACJA
+// 🛠️ PANEL KONFIGURACYJNY (EDYTUJ TUTAJ)
 // ==========================================
-const socialLinks = { youtube: "https://www.youtube.com/@PakoYouTube", discord: "https://discord.gg/rUPMRj3JD5", tiktok: "https://www.tiktok.com/@pakoyoutube?_r=1&_t=ZN-97QGtMmFi3a" };
-const founder = { minecraftNick: "PakoYouTube", discordNick: "pakoyoutube", description: "Założyciel oraz lider PakoTeam. To właśnie od jego pomysłu rozpoczęła się historia ekipy. Odpowiada za rozwój społeczności, organizację projektów oraz wyznaczanie kierunku, w którym rozwija się PakoTeam.", avatar: "https://i.postimg.cc/qqnbMrMM/Projekt-bez-nazwy-(3).png" };
-const mainMembers = [
-    { minecraftNick: "Oskar9D_Pro", discordNick: "oskar9d_yt", description: "", avatar: "https://i.postimg.cc/fyr9FShw/Projekt-bez-nazwy-(5).png" },
-    { minecraftNick: "Kapix_4231", discordNick: "kapix_4231", description: "", avatar: "https://i.postimg.cc/VNmdKWbh/Projekt-bez-nazwy-(6).png" },
-    { minecraftNick: "Young_SKapi", discordNick: "youngskapi", description: "", avatar: "https://i.postimg.cc/vTpzpNWJ/Projekt-bez-nazwy-(2).png" },
-    { minecraftNick: "FRUTELLKA09", discordNick: "fanpako.", description: "", avatar: "https://i.postimg.cc/c47KwzvG/Projekt-bez-nazwy-(7).png" },
-    { minecraftNick: "----", discordNick: "fuck_off4u", description: "", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
+
+const socialLinks = {
+    youtube: "https://www.youtube.com/@PakoYouTube",
+    discord: "https://discord.gg/rUPMRj3JD5",
+    tiktok: "https://www.tiktok.com/@pakoyoutube?_r=1&_t=ZN-97QGtMmFi3a"
+};
+
+const DONATE_LINK = "TUTAJ_WKLEJ_LINK";
+
+const founder = {
+    minecraftNick: "PakoYouTube",
+    discordNick: "pakoyoutube",
+    description: "Założyciel oraz lider PakoTeam. To właśnie od jego pomysłu rozpoczęła się historia ekipy. Odpowiada za rozwój społeczności, organizację projektów oraz wyznaczanie kierunku, w którym rozwija się PakoTeam.",
+    avatar: "https://i.postimg.cc/qqnbMrMM/Projekt-bez-nazwy-(3).png"
+};
+
+// KONFIGURACJA SEKCJI "O PAKO"
+const pakoData = {
+    avatar: "https://i.postimg.cc/qqnbMrMM/Projekt-bez-nazwy-(3).png",
+    mcNick: "PakoYouTube",
+    dcNick: "pakoyoutube",
+    bio: "Pako jest założycielem i właścicielem projektu PakoTeam. To właśnie od jego pomysłu rozpoczęła się historia społeczności, która z czasem rozwinęła się w większy projekt skupiający ludzi o podobnych zainteresowaniach i pasjach.",
+    history: [
+        "Moja przygoda z Minecraftem zaczęła się wiele lat temu od prostej ciekawości. Szybko okazało się, że gra ta daje nieskończone możliwości, a ja chciałem dzielić się swoimi buildami i przygodami z innymi.",
+        "Wkrótce potem powstał mój kanał na YouTube. Początki były trudne, ale z każdym filmem uczyłem się nowych rzeczy i odkrywał, że tworzenie treści to coś, co naprawdę kocham robić.",
+        "Z czasem wokół kanału zaczęła gromadzić się mała grupa stałych widzów i znajomych, z którymi regularnie grałem. Tak narodził się pomysł na PakoTeam – miejsce, gdzie moglibyśmy połączyć siły.",
+        "Dziś PakoTeam to nie tylko ekipa do nagrywania filmów, ale prężnie rozwijająca się społeczność, a ja jestem dumny, że mogę być częścią tej drogi i przewodzić temu projektowi."
+    ],
+    infoCards: [
+        { icon: "mdi:crown-outline", text: "Założyciel PakoTeam" },
+        { icon: "mdi:account-group-outline", text: "Twórca Społeczności" },
+        { icon: "mdi:minecraft", text: "Gracz Minecraft" },
+        { icon: "mdi:video-outline", text: "Twórca Internetowy" },
+        { icon: "mdi:calendar-check-outline", text: "Organizator Projektów" },
+        { icon: "mdi:broadcast", text: "Właściciel Kanału" }
+    ],
+    funFacts: [
+        { icon: "mdi:gamepad-variant-outline", label: "Ulubiona gra", value: "Minecraft" },
+        { icon: "mdi:movie-open-outline", label: "Ulubiona aktywność", value: "Tworzenie treści" },
+        { icon: "mdi:calendar-star", label: "Rok założenia kanału", value: "2023" },
+        { icon: "mdi:rocket-launch-outline", label: "Rok powstania PT", value: "2024" }
+    ],
+    goals: "Moim celem jest dalszy rozwój PakoTeam, tworzenie nowych projektów, budowanie aktywnej społeczności i dostarczanie ciekawych materiałów dla widzów oraz członków ekipy."
+};
+
+// ROZBUDOWANA OŚ CZASU (10 PUNKTÓW)
+const pakoTimeline = [
+    { date: "2021", title: "Początek przygody z MC", desc: "Pierwszy kontakt z grą Minecraft, która szybko stała się główną pasją i sposobem na spędzanie wolnego czasu." },
+    { date: "2022", title: "Pierwsze serwery", desc: "Odkrywanie trybu multiplayer, dołączanie do publicznych serwerów i poznawanie mechaniki gry w grupie." },
+    { date: "Początek 2023", title: "Poznawanie nowych osób", desc: "Nawiązywanie pierwszych znajomości w sieci, z którymi później tworzyło się fundamenty społeczności." },
+    { date: "Mid 2023", title: "Pierwsze projekty", desc: "Próby organizowania wspólnych gier, małych eventów i tworzenia pierwszych wspólnych budynków." },
+    { date: "Koniec 2023", title: "Powstanie kanału", desc: "Decyzja o założeniu kanału na YouTube, by dokumentować przygody i dzielić się nimi z szerszą publicznością." },
+    { date: "Początek 2024", title: "Tworzenie społeczności", desc: "Gromadzenie widzów, tworzenie pierwszej społeczności wokół kanału i budowanie relacji z odbiorcami." },
+    { date: "Mid 2024", title: "Narodziny pomysłu PakoTeam", desc: "Moment, w którym zrodziła się wizja stworzenia odrębnego projektu, czegoś więcej niż tylko kanału." },
+    { date: "Koniec 2024", title: "Pierwsi członkowie ekipy", desc: "Rekrutacja pierwszych zaufanych osób, które podzieliły chęć tworzenia PakoTeam." },
+    { date: "2025", title: "Rozwój projektu", desc: "Oficjalny start działań, uruchomienie strony, serwera MC i intensywny rozwój społeczności." },
+    { date: "Przyszłość", title: "Plany na przyszłość", desc: "Skalowanie projektu, nowe formaty contentu, większe eventy i budowanie silnej marki PakoTeam." }
 ];
+
+const mainMembers = [
+    { minecraftNick: "Oskar9D_Pro", discordNick: "oskar9d_yt", joinDate: "Maj 2025", description: "Jeden z pierwszych członków PakoTeam. Od początku wspierał rozwój społeczności i brał udział w kluczowych projektach ekipy.", avatar: "https://i.postimg.cc/fyr9FShw/Projekt-bez-nazwy-(5).png" },
+    { minecraftNick: "Kapix_4231", discordNick: "kapix_4231", joinDate: "Maj 2025", description: "Pomagał przy rozwoju społeczności oraz budowaniu struktury PakoTeam. Wniósł duży wkład w organizację naszych pierwszych wydarzeń.", avatar: "https://i.postimg.cc/VNmdKWbh/Projekt-bez-nazwy-(6).png" },
+    { minecraftNick: "Young_SKapi", discordNick: "youngskapi", joinDate: "Maj 2025", description: "Brał udział w najważniejszych projektach i nagraniach. Zawsze angażuje się w 100% we wszystko, co robi PakoTeam.", avatar: "https://i.postimg.cc/vTpzpNWJ/Projekt-bez-nazwy-(2).png" },
+    { minecraftNick: "FRUTELLKA09", discordNick: "fanpako.", joinDate: "Czerwiec 2025", description: "Wspiera ekipę od początku jej oficjalnej działalności. Aktywny członek, bez którego ciężko wyobrazić sobie nasz zespół.", avatar: "https://i.postimg.cc/c47KwzvG/Projekt-bez-nazwy-(7).png" },
+    { minecraftNick: "----", discordNick: "fuck_off4u", joinDate: "Czerwiec 2025", description: "Zasłużony członek, który pomógł rozwijać projekt w kluczowym momencie. Zawsze można na niego liczyć.", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" }
+];
+
 const newMembers = [
     { minecraftNick: "3x_pr0bl3m_x3__", discordNick: "3x_pr0bl3m_x3_esz", avatar: "https://i.postimg.cc/kXjm0NZQ/Projekt-bez-nazwy-(8).png" },
     { minecraftNick: "Nowy Członek #2", discordNick: "-", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
@@ -524,6 +725,34 @@ const newMembers = [
     { minecraftNick: "Nowy Członek #5", discordNick: "-", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
     { minecraftNick: "Nowy Członek #6", discordNick: "-", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" }
 ];
+
+const moderators = [
+    { minecraftNick: "Moderator #1", discordNick: "mod_discord_1", role: "Moderator kanału", joinDate: "Czerwiec 2025", description: "Moderator odpowiedzialny za pomoc społeczności oraz utrzymywanie porządku na serwerze.", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
+    { minecraftNick: "Moderator #2", discordNick: "mod_discord_2", role: "Pomoc społeczności", joinDate: "Czerwiec 2025", description: "Aktywny moderator wspierający rozwój społeczności PakoTeam i dbający o dobre relacje.", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
+    { minecraftNick: "Moderator #3", discordNick: "mod_discord_3", role: "Moderator kanału", joinDate: "Lipiec 2025", description: "Dbasz o czystość czatu i przestrzeganie regulaminu podczas wydarzeń na żywo.", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
+    { minecraftNick: "Moderator #4", discordNick: "mod_discord_4", role: "Pomoc techniczna", joinDate: "Lipiec 2025", description: "Wsparcie techniczne dla członków oraz pomoc w rozwiązywaniu problemów z serwerem.", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
+    { minecraftNick: "Moderator #5", discordNick: "mod_discord_5", role: "Moderator kanału", joinDate: "Sierpień 2025", description: "Osoba dbająca o bezpieczeństwo i komfort wszystkich przebywających na naszym Discordzie.", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" }
+];
+
+const seasonInfo = {
+    number: "Sezon 1",
+    status: "active",
+    date: "01.05.2025",
+    description: "Pierwszy oficjalny sezon serwera PakoTeam. Skupiamy się na budowaniu bazy, wspólnej eksploracji i tworzeniu pierwszych wielkich projektów w naszym świecie.",
+    changes: [
+        "Nowy spawn i strefa startowa",
+        "System ekonomii i handlu",
+        "Wspólne budowle ekipy",
+        "Regularne eventy dla członków"
+    ]
+};
+
+const newsItems = [
+    { title: "Start Sezonu 1!", date: "01 Maj 2025", description: "Oficjalnie odpalamy pierwszy sezon naszego serwera Minecraft. Zapraszamy wszystkich do wspólnej zabawy i budowania nowego świata!", image: "" },
+    { title: "Nowy członek ekipy", date: "15 Kwiecień 2025", description: "Mamy nową osobę w zespole! Witamy na pokładzie i liczymy na świetną współpracę przy nowych projektach.", image: "" },
+    { title: "Tajny projekt w trakcie", date: "10 Kwiecień 2025", description: "Trwają prace nad tajnym projektem, który niedługo ujrzy światło dzienne. Bądźcie czujni na naszych social mediach!", image: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" }
+];
+
 const galleryItems = [
     { title: "Wspólna Integracja", description: "Pierwsze duże spotkanie społeczności.", date: "Maj 2025", image: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
     { title: "Gamingowy Wieczór", description: "Długa noc pełna gier i śmiechu.", date: "Czerwiec 2025", image: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
@@ -534,62 +763,92 @@ const galleryItems = [
     { title: "Milestone 100", description: "Osiągnięcie 100 członków.", date: "Listopad 2025", image: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
     { title: "Zakończenie Roku", description: "Podsumowanie pierwszego roku.", date: "Grudzień 2025", image: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" }
 ];
-// ==========================================
-// KONFIGURACJA NOWYCH ELEMENTÓW
-// ==========================================
-const DONATE_LINK = "TUTAJ_WKLEJ_LINK";
 
-const moderators = [
-    { minecraftNick: "Moderator #1", discordNick: "mod_discord_1", role: "Moderator kanału", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
-    { minecraftNick: "Moderator #2", discordNick: "mod_discord_2", role: "Pomoc społeczności", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
-    { minecraftNick: "Moderator #3", discordNick: "mod_discord_3", role: "Moderator kanału", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
-    { minecraftNick: "Moderator #4", discordNick: "mod_discord_4", role: "Pomoc techniczna", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" },
-    { minecraftNick: "Moderator #5", discordNick: "mod_discord_5", role: "Moderator kanału", avatar: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" }
+const faqItems = [
+    { q: "Czym jest PakoTeam?", a: "PakoTeam to społeczność osób, którzy chcą tworzyć razem filmiki i także społeczeństwo minecraft." },
+    { q: "Jak mogę dołączyć?", a: "Jak na razie nie szukamy nowych osób, ale zawsze możesz dołączyć na nasz Serwer Discord." },
+    { q: "W jakim wieku są członkowie Ekipy PT?", a: "Właściciel PT ma 19 lat, a członkowie mają od 12 do 19 lat." },
+    { q: "Jakie są cele ekipy?", a: "Budowanie silnej społeczności i realizowanie ciekawych projektów." },
+    { q: "Gdzie mogę śledzić rozwój projektu?", a: "Na YouTube właściciela i członków ekipy i przede wszystkim na Discordzie." },
+    { q: "Czy mogę zaprosić znajomych?", a: "Oczywiście! Śmiało udostępniaj link do naszego Discorda." }
 ];
 
-const seasonInfo = {
-    number: "Sezon 1",
-    status: "active", // "active" lub "ended"
-    date: "01.05.2025",
-    description: "Pierwszy oficjalny sezon serwera PakoTeam. Skupiamy się na budowaniu bazy, wspólnej eksploracji i tworzeniu pierwszych projektów w naszym świecie.",
-    changes: [
-        "Nowy spawn i strefa startowa",
-        "System ekonomii i handlu",
-        "Wspólne budowle ekipy",
-        "Regularne eventy dla członków"
-    ]
-};
-
-const newsItems = [
-    { title: "Start Sezonu 1!", date: "01 Maj 2025", description: "Oficjalnie odpalamy pierwszy sezon naszego serwera Minecraft. Zapraszamy wszystkich do wspólnej zabawy!", image: "" },
-    { title: "Nowy członek ekipy", date: "15 Kwiecień 2025", description: "Mamy nową osobę w zespole! Witamy na pokładzie i liczymy na świetną współpracę.", image: "" },
-    { title: "Nowy projekt w trakcie", date: "10 Kwiecień 2025", description: "Trwają prace nad tajnym projektem, który soon ujrzy światło dzienne. Bądźcie czujni!", image: "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" }
-];    
 
 // ==========================================
-// FUNKCJE POMOCNICZE
+// ⚙️ FUNKCJE POMOCNICZE I GENEROWANIE
 // ==========================================
+
 function getAvatarHtml(url, size = 80) {
-    if (!url || url === "TUTAJ_WKLEJ_LINK_DO_ZDJECIA") return `<div class="img-placeholder" style="width:${size}px;height:${size}px;border-radius:50%;margin:0 auto"><iconify-icon icon="mdi:account-plus-outline" style="font-size:${size * 0.5}px"></iconify-icon></div>`;
-    return `<img src="${url}" alt="Avatar">`;
+    if (!url || url === "TUTAJ_WKLEJ_LINK_DO_ZDJECIA") return `<div class="img-placeholder" style="width:${size}px;height:${size}px;border-radius:50%;margin:0 auto;position:relative"><iconify-icon icon="mdi:account-plus-outline" style="font-size:${size * 0.5}px"></iconify-icon></div>`;
+    return `<img src="${url}" alt="Avatar" loading="lazy">`;
 }
+
 function getImageHtml(url) {
     if (!url || url === "TUTAJ_WKLEJ_LINK_DO_ZDJECIA") return `<div class="img-placeholder"><iconify-icon icon="mdi:image-plus-outline" style="font-size:3rem"></iconify-icon></div>`;
-    return `<img src="${url}" alt="Zdjęcie galerii" loading="lazy">`;
+    return `<img src="${url}" alt="Zdjęcie" loading="lazy">`;
 }
 
-// ==========================================
-// GENEROWANIE NOWYCH ELEMENTÓW
-// ==========================================
+function applySocialLinks() {
+    document.querySelectorAll('.link-youtube').forEach(el => el.href = socialLinks.youtube);
+    document.querySelectorAll('.link-discord').forEach(el => el.href = socialLinks.discord);
+    document.querySelectorAll('.link-tiktok').forEach(el => el.href = socialLinks.tiktok);
+}
+
+function renderFounder() {
+    document.getElementById('founder-container').innerHTML = `
+        <div class="team-founder" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-founder-inner">
+                <div class="team-founder-avatar">${getAvatarHtml(founder.avatar, 140)}</div>
+                <div class="team-founder-info">
+                    <span class="badge">Założyciel</span>
+                    <h3>${founder.minecraftNick}</h3>
+                    <div class="nicks">
+                        <span class="nick"><iconify-icon icon="mdi:minecraft"></iconify-icon> ${founder.minecraftNick}</span>
+                        <span class="nick"><iconify-icon icon="ic:baseline-discord"></iconify-icon> ${founder.discordNick}</span>
+                    </div>
+                    <p>${founder.description}</p>
+                </div>
+            </div>
+        </div>`;
+}
+
+function renderMainMembers() {
+    document.getElementById('main-members-container').innerHTML = mainMembers.map((m, i) => `
+        <div class="team-card" data-aos="fade-up" data-aos-delay="${100 + i * 50}">
+            <div class="team-card-avatar">${getAvatarHtml(m.avatar, 80)}</div>
+            <h4>${m.minecraftNick}</h4>
+            <div class="nicks">
+                <span class="nick"><iconify-icon icon="ic:baseline-discord" style="font-size:.8rem"></iconify-icon> ${m.discordNick}</span>
+            </div>
+            <p class="team-card-desc">${m.description}</p>
+            <div class="member-date"><iconify-icon icon="mdi:calendar-outline"></iconify-icon> ${m.joinDate}</div>
+        </div>
+    `).join('');
+}
+
+function renderNewMembers() {
+    document.getElementById('new-members-container').innerHTML = newMembers.map((m, i) => `
+        <div class="new-member-card" data-aos="fade-up" data-aos-delay="${100 + i * 50}">
+            <div class="new-member-avatar">${getAvatarHtml(m.avatar, 56)}</div>
+            <h4>${m.minecraftNick}</h4>
+            <div class="nicks">
+                <span class="nick"><iconify-icon icon="ic:baseline-discord" style="font-size:.7rem"></iconify-icon> ${m.discordNick}</span>
+            </div>
+        </div>
+    `).join('');
+}
+
 function renderModerators() {
     document.getElementById('moderators-container').innerHTML = moderators.map((m, i) => `
         <div class="mod-card" data-aos="fade-up" data-aos-delay="${100 + i * 50}">
-            <div class="mod-avatar">${getAvatarHtml(m.avatar, 56)}</div>
+            <div class="mod-avatar">${getAvatarHtml(m.avatar, 72)}</div>
             <div class="mod-role">${m.role}</div>
             <h4>${m.minecraftNick}</h4>
             <div class="nicks">
                 <span class="nick"><iconify-icon icon="ic:baseline-discord" style="font-size:.8rem"></iconify-icon> ${m.discordNick}</span>
             </div>
+            <p class="mod-desc">${m.description}</p>
+            <div class="member-date"><iconify-icon icon="mdi:calendar-outline"></iconify-icon> ${m.joinDate}</div>
         </div>
     `).join('');
 }
@@ -599,26 +858,28 @@ function renderSeason() {
     const statusText = seasonInfo.status === 'active' ? 'Aktywny' : 'Zakończony';
     
     const changesHtml = seasonInfo.changes.map(c => `
-        <li><iconify-icon icon="mdi:check-circle"></iconify-icon> ${c}</li>
+        <div class="season-change-item">
+            <iconify-icon icon="mdi:check-decagram"></iconify-icon>
+            <span>${c}</span>
+        </div>
     `).join('');
 
     document.getElementById('season-container').innerHTML = `
         <div class="season-card" data-aos="fade-up">
             <div class="season-header">
                 <div class="season-num">${seasonInfo.number}</div>
-                <span class="season-status ${statusClass}">${statusText}</span>
-                <div class="season-date"><iconify-icon icon="mdi:calendar-outline" style="vertical-align:middle;margin-right:6px;color:var(--blue)"></iconify-icon>Start: ${seasonInfo.date}</div>
+                <span class="season-status ${statusClass}"><span class="status-dot"></span> ${statusText}</span>
+                <div class="season-date"><iconify-icon icon="mdi:calendar-clock" style="color:var(--blue)"></iconify-icon> Start: ${seasonInfo.date}</div>
             </div>
             <p class="season-desc">${seasonInfo.description}</p>
-            <div class="season-changes-title">Najważniejsze zmiany:</div>
-            <ul class="season-changes-list">${changesHtml}</ul>
-        </div>
-    `;
+            <div class="season-changes-title">Najważniejsze zmiany i dodatki:</div>
+            <div class="season-changes-grid">${changesHtml}</div>
+        </div>`;
 }
 
 function renderNews() {
     document.getElementById('news-container').innerHTML = newsItems.map((n, i) => {
-        const hasImage = n.image && n.image !== "TUTAJ_WKLEJ_LINK_DO_ZDJECIA";
+        const hasImage = n.image && n.image !== "TUTAJ_WKLEJ_LINK_DO_ZDJECIA" && n.image !== "";
         const imgHtml = hasImage ? `<img src="${n.image}" alt="${n.title}" class="news-img" loading="lazy">` : '';
         const noImgClass = hasImage ? '' : 'no-img';
 
@@ -626,7 +887,7 @@ function renderNews() {
             <div class="news-item ${noImgClass}" data-aos="fade-up" data-aos-delay="${100 + i * 50}">
                 ${imgHtml}
                 <div class="news-content">
-                    <div class="news-date"><iconify-icon icon="mdi:clock-outline" style="vertical-align:middle;margin-right:4px"></iconify-icon>${n.date}</div>
+                    <div class="news-date"><iconify-icon icon="mdi:clock-outline"></iconify-icon> ${n.date}</div>
                     <h3>${n.title}</h3>
                     <p>${n.description}</p>
                 </div>
@@ -635,126 +896,248 @@ function renderNews() {
     }).join('');
 }
 
+function renderGallery() {
+    document.getElementById('gallery-container').innerHTML = galleryItems.map((g, i) => `
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="${100 + i * 50}" onclick="openLb('${g.image.replace(/'/g, "\\'")}', '${g.title.replace(/'/g, "\\'")}', '${g.description.replace(/'/g, "\\'")}')">
+            ${getImageHtml(g.image)}
+            <div class="gallery-item-overlay">
+                <div class="zoom-icon"><iconify-icon icon="mdi:magnify-plus-outline"></iconify-icon></div>
+                <h4>${g.title}</h4>
+                <p>${g.description}</p>
+                <div class="date">${g.date}</div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderFaq() {
+    document.getElementById('faq-container').innerHTML = faqItems.map((f, i) => `
+        <div class="faq-item ${i === 0 ? 'active' : ''}" data-aos="fade-up" data-aos-delay="${100 + i * 50}">
+            <div class="faq-q" onclick="toggleFaq(this)">
+                <h3>${f.q}</h3>
+                <div class="faq-icon"><iconify-icon icon="mdi:plus"></iconify-icon></div>
+            </div>
+            <div class="faq-a">
+                <div class="faq-a-inner">${f.a}</div>
+            </div>
+        </div>
+    `).join('');
+}
+
 function renderDonate() {
     document.getElementById('donate-container').innerHTML = `
         <div class="donate-box" data-aos="fade-up">
             <iconify-icon icon="mdi:heart-multiple" class="donate-icon"></iconify-icon>
-            <h2 class="sec-title" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:16px">Wspieraj <span class="glow-text">PakoTeam</span></h2>
-            <p class="sec-desc" style="margin:0 auto">Jeśli chcesz wesprzeć rozwój PakoTeam, możesz to zrobić tutaj. Każda pomoc jest ogromnym wsparciem dla naszych projektów!</p>
+            <h2 class="sec-title" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:16px; position:relative; z-index:1;">Wspieraj <span class="glow-text">PakoTeam</span></h2>
+            <p class="sec-desc" style="margin:0 auto; position:relative; z-index:1;">Jeśli chcesz wesprzeć rozwój PakoTeam, możesz to zrobić tutaj. Każda pomoc jest ogromnym wsparciem dla naszych projektów i serwera!</p>
             <a href="${DONATE_LINK}" target="_blank" class="donate-btn"><iconify-icon icon="mdi:coffee-outline" style="font-size:1.2rem"></iconify-icon> Przekaż wsparcie</a>
-        </div>
-    `;
-}
-    
-// ==========================================
-// GENEROWANIE ELEMENTÓW
-// ==========================================
-function applySocialLinks() {
-    document.querySelectorAll('.link-youtube').forEach(el => el.href = socialLinks.youtube);
-    document.querySelectorAll('.link-discord').forEach(el => el.href = socialLinks.discord);
-    document.querySelectorAll('.link-instagram').forEach(el => el.href = socialLinks.instagram);
-    document.querySelectorAll('.link-tiktok').forEach(el => el.href = socialLinks.tiktok);
-}
-function renderFounder() {
-    document.getElementById('founder-container').innerHTML = `<div class="team-founder" data-aos="fade-up" data-aos-delay="100"><div class="team-founder-inner"><div class="team-founder-avatar">${getAvatarHtml(founder.avatar, 140)}</div><div class="team-founder-info"><span class="badge">Założyciel</span><h3>${founder.minecraftNick}</h3><div class="nicks"><span class="nick"><iconify-icon icon="mdi:minecraft"></iconify-icon> ${founder.minecraftNick}</span><span class="nick"><iconify-icon icon="ic:baseline-discord"></iconify-icon> ${founder.discordNick}</span></div><p>${founder.description}</p></div></div></div>`;
-}
-function renderMainMembers() {
-    document.getElementById('main-members-container').innerHTML = mainMembers.map((m, i) => `<div class="team-card" data-aos="fade-up" data-aos-delay="${100 + i * 50}"><div class="team-card-avatar">${getAvatarHtml(m.avatar, 80)}</div><h4>${m.minecraftNick}</h4><div class="nicks"><span class="nick"><iconify-icon icon="mdi:minecraft"></iconify-icon> ${m.minecraftNick}</span><span class="nick"><iconify-icon icon="ic:baseline-discord"></iconify-icon> ${m.discordNick}</span></div></div>`).join('');
-}
-function renderNewMembers() {
-    document.getElementById('new-members-container').innerHTML = newMembers.map((m, i) => `<div class="new-member-card" data-aos="fade-up" data-aos-delay="${100 + i * 50}"><div class="new-member-avatar">${getAvatarHtml(m.avatar, 56)}</div><h4>${m.minecraftNick}</h4><div class="nicks"><span class="nick"><iconify-icon icon="mdi:minecraft"></iconify-icon> ${m.minecraftNick}</span><span class="nick"><iconify-icon icon="ic:baseline-discord"></iconify-icon> ${m.discordNick}</span></div></div>`).join('');
-}
-function renderGallery() {
-    document.getElementById('gallery-container').innerHTML = galleryItems.map((item, i) => `<div class="gallery-item" data-aos="zoom-in" data-aos-delay="${100 + i * 50}" data-title="${item.title}" data-desc="${item.description} ${item.date}">${getImageHtml(item.image)}<div class="gallery-item-overlay"><h4>${item.title}</h4><p>${item.description}</p><span class="date">${item.date}</span><div class="zoom-icon"><iconify-icon icon="mdi:magnify-plus-outline"></iconify-icon></div></div></div>`).join('');
+        </div>`;
 }
 
+// FUNKCJE DLA SEKCJI "O PAKO"
+
+function renderPakoMain() {
+    const historyHtml = pakoData.history.map(p => `<p>${p}</p>`).join('');
+    document.getElementById('pako-main-container').innerHTML = `
+        <div class="pako-main-grid" data-aos="fade-up">
+            <div class="pako-bio-card">
+                <div class="pako-bio-avatar">${getAvatarHtml(pakoData.avatar, 140)}</div>
+                <h3>${pakoData.mcNick}</h3>
+                <div class="pako-bio-nicks">
+                    <span class="nick"><iconify-icon icon="mdi:minecraft"></iconify-icon> ${pakoData.mcNick}</span>
+                    <span class="nick"><iconify-icon icon="ic:baseline-discord"></iconify-icon> ${pakoData.dcNick}</span>
+                </div>
+                <p class="pako-bio-text">${pakoData.bio}</p>
+            </div>
+            <div class="pako-history">
+                <h3>Moja Historia</h3>
+                ${historyHtml}
+            </div>
+        </div>`;
+}
+
+function renderPakoInfo() {
+    const cardsHtml = pakoData.infoCards.map(c => `
+        <div class="pako-info-card" data-aos="fade-up" data-aos-delay="100">
+            <iconify-icon icon="${c.icon}"></iconify-icon>
+            <span>${c.text}</span>
+        </div>
+    `).join('');
+
+    document.getElementById('pako-info-container').innerHTML = `
+        <div class="sec-head" style="margin-bottom: 40px;">
+            <h2 class="sec-title" data-aos="fade-up" style="font-size:clamp(1.6rem,3.5vw,2.4rem)">Kilka Informacji o <span class="glow-text">Mnie</span></h2>
+        </div>
+        <div class="pako-info-grid">
+            ${cardsHtml}
+        </div>`;
+}
+
+function renderPakoFacts() {
+    const factsHtml = pakoData.funFacts.map(f => `
+        <div class="pako-fact-card" data-aos="fade-up" data-aos-delay="100">
+            <iconify-icon icon="${f.icon}"></iconify-icon>
+            <div class="pako-fact-label">${f.label}</div>
+            <div class="pako-fact-value">${f.value}</div>
+        </div>
+    `).join('');
+
+    document.getElementById('pako-facts-container').innerHTML = `
+        <div class="sec-head" style="margin-bottom: 40px;">
+            <h2 class="sec-title" data-aos="fade-up" style="font-size:clamp(1.6rem,3.5vw,2.4rem)">Ciekawostki o <span class="glow-text">Pako</span></h2>
+        </div>
+        <div class="pako-facts-grid">
+            ${factsHtml}
+        </div>`;
+}
+
+function renderPakoGoals() {
+    document.getElementById('pako-goals-container').innerHTML = `
+        <div class="pako-goals-box" data-aos="fade-up">
+            <h3>Moje Cele</h3>
+            <p>${pakoData.goals}</p>
+        </div>`;
+}
+
+function renderPakoTimeline() {
+    const timelineHtml = pakoTimeline.map((t, i) => {
+        const side = i % 2 === 0 ? 'left' : 'right';
+        return `
+            <div class="timeline-item ${side}" data-aos="fade-up" data-aos-delay="${100 + i * 100}">
+                <div class="timeline-content">
+                    <div class="timeline-date">${t.date}</div>
+                    <h4>${t.title}</h4>
+                    <p>${t.desc}</p>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    document.getElementById('pako-timeline-container').innerHTML = `
+        <div class="timeline">
+            ${timelineHtml}
+        </div>`;
+}
+
+
 // ==========================================
-// INICJALIZACJA
+// 🎮 INTERAKCJE I INICJALIZACJA
 // ==========================================
-document.addEventListener("DOMContentLoaded", () => {
-    applySocialLinks(); renderFounder(); renderMainMembers(); renderNewMembers(); renderGallery();
-    AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
-    
-    initGalleryLightbox(); initCounters(); initParticles();
+
+const hamb = document.getElementById('hamb');
+const mobMenu = document.getElementById('mobMenu');
+hamb.addEventListener('click', () => { hamb.classList.toggle('on'); mobMenu.classList.toggle('open'); });
+function closeMob() { hamb.classList.remove('on'); mobMenu.classList.remove('open'); }
+
+window.addEventListener('scroll', () => {
+    const nav = document.getElementById('nav');
+    const stt = document.getElementById('stt');
+    if (window.scrollY > 50) { nav.classList.add('s'); } else { nav.classList.remove('s'); }
+    if (window.scrollY > 600) { stt.classList.add('vis'); } else { stt.classList.remove('vis'); }
 });
 
-// Wywołanie nowych sekcji
-renderModerators();
-renderSeason();
-renderNews();
-renderDonate();
-    
-window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('hidden'), 1800));
+document.getElementById('stt').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// ==========================================
-// NAWIGACJA
-// ==========================================
-const nav = document.getElementById('nav'), stt = document.getElementById('stt'), hamb = document.getElementById('hamb'), mob = document.getElementById('mobMenu');
-window.addEventListener('scroll', () => { nav.classList.toggle('s', scrollY > 60); stt.classList.toggle('vis', scrollY > 500); }, { passive: true });
-stt.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
-hamb.addEventListener('click', () => { hamb.classList.toggle('on'); mob.classList.toggle('open'); document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : ''; });
-function closeMob() { hamb.classList.remove('on'); mob.classList.remove('open'); document.body.style.overflow = ''; }
-
-// ==========================================
-// LICZNIKI
-// ==========================================
-function initCounters() {
-    const counters = document.querySelectorAll('.counter');
-    if (!counters.length) return;
-    let cStarted = false;
-    function animC() { counters.forEach(c => { const t = +c.dataset.target, s = performance.now(); (function u(n) { const p = Math.min((n - s) / 1800, 1), e = 1 - Math.pow(1 - p, 3); c.textContent = Math.floor(e * t); if (p < 1) requestAnimationFrame(u); else c.textContent = t; })(s); }); }
-    const observer = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting && !cStarted) { cStarted = true; animC(); } }); }, { threshold: 0.3 });
-    const statsContainer = counters[0].closest('.about-stats');
-    if (statsContainer) observer.observe(statsContainer);
+function toggleFaq(el) {
+    const item = el.parentElement;
+    const isActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+    if (!isActive) item.classList.add('active');
 }
 
-// ==========================================
-// GALERIA
-// ==========================================
-function initGalleryLightbox() {
-    const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbInfo = document.getElementById('lbInfo');
-    document.querySelectorAll('.gallery-item').forEach(item => {
-        item.addEventListener('click', () => {
-            const imgSrc = item.querySelector('img');
-            if (!imgSrc) return; 
-            lbImg.src = imgSrc.src.replace(/\/\d+\/\d+$/, '/1400/900');
-            lbInfo.querySelector('h4').textContent = item.dataset.title;
-            lbInfo.querySelector('p').textContent = item.dataset.desc;
-            lb.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        });
+function openLb(img, title, desc) {
+    if (img === "TUTAJ_WKLEJ_LINK_DO_ZDJECIA") return;
+    const lb = document.getElementById('lb');
+    document.getElementById('lbImg').src = img;
+    document.getElementById('lbInfo').querySelector('h4').innerText = title;
+    document.getElementById('lbInfo').querySelector('p').innerText = desc;
+    lb.classList.add('open');
+}
+document.getElementById('lbClose').addEventListener('click', () => document.getElementById('lb').classList.remove('open'));
+document.getElementById('lb').addEventListener('click', (e) => { if (e.target === e.currentTarget) e.currentTarget.classList.remove('open'); });
+
+function animateCounters() {
+    document.querySelectorAll('.counter').forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const duration = 2000;
+        const start = performance.now();
+        function update(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const ease = 1 - Math.pow(1 - progress, 3);
+            counter.innerText = Math.floor(ease * target);
+            if (progress < 1) requestAnimationFrame(update);
+            else counter.innerText = target;
+        }
+        requestAnimationFrame(update);
     });
-    function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
-    document.getElementById('lbClose').addEventListener('click', closeLb);
-    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 }
 
-// ==========================================
-// FAQ
-// ==========================================
-function toggleFaq(el) { const item = el.parentElement, wasActive = item.classList.contains('active'); document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active')); if (!wasActive) item.classList.add('active'); }
+const canvas = document.getElementById('bgCanvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
 
-// ==========================================
-// TŁO
-// ==========================================
-function initParticles() {
-    const c = document.getElementById('bgCanvas'), ctx = c.getContext('2d');
-    let w, h, pts = [], mouseX = -1000, mouseY = -1000;
-    function resize() { w = c.width = innerWidth; h = c.height = innerHeight; } resize();
-    window.addEventListener('resize', resize);
-    document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
-    const N = Math.min(80, Math.floor(w * h / 20000));
-    class P { constructor() { this.x = Math.random() * w; this.y = Math.random() * h; this.s = Math.random() * 1.5 + .4; this.vx = (Math.random() - .5) * .35; this.vy = (Math.random() - .5) * .35; this.o = Math.random() * .3 + .05; } update() { this.x += this.vx; this.y += this.vy; const dx = mouseX - this.x, dy = mouseY - this.y, d = dx*dx + dy*dy; if (d < 32400) { this.x -= dx * .005; this.y -= dy * .005; } if (this.x < 0) this.x = w; if (this.x > w) this.x = 0; if (this.y < 0) this.y = h; if (this.y > h) this.y = 0; } draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.s, 0, Math.PI*2); ctx.fillStyle = `rgba(79,195,247,${this.o})`; ctx.fill(); } }
-    for (let i = 0; i < N; i++) pts.push(new P());
-    function lines() { for (let i = 0; i < pts.length; i++) { for (let j = i + 1; j < pts.length; j++) { const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y, d = dx*dx + dy*dy; if (d < 16900) { ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y); ctx.strokeStyle = `rgba(79,195,247,${.06 * (1 - Math.sqrt(d)/130)})`; ctx.lineWidth = .5; ctx.stroke(); } } } }
-    (function loop() { ctx.clearRect(0, 0, w, h); pts.forEach(p => { p.update(); p.draw(); }); lines(); requestAnimationFrame(loop); })();
+class Particle {
+    constructor() { this.reset(); }
+    reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.opacity = Math.random() * 0.5 + 0.1;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+    }
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(79, 195, 247, ${this.opacity})`;
+        ctx.fill();
+    }
 }
 
-// ==========================================
-// LICZNIK ODWIEDZIN
-// ==========================================
-(function() { try { let c = parseInt(localStorage.getItem('pt_visits') || '0') + 1; localStorage.setItem('pt_visits', c); const el = document.getElementById('visitCount'); let cur = 0; const step = Math.ceil(c / 40); const iv = setInterval(() => { cur += step; if (cur >= c) { cur = c; clearInterval(iv); } el.textContent = cur; }, 30); } catch (e) { document.getElementById('visitCount').textContent = '—'; } })();
+for (let i = 0; i < 80; i++) particles.push(new Particle());
+
+function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('loader').classList.add('hidden'), 1800);
+    
+    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+    
+    applySocialLinks();
+    renderPakoMain();
+    renderPakoInfo();
+    renderPakoFacts();
+    renderPakoGoals();
+    renderPakoTimeline();
+    renderFounder();
+    renderMainMembers();
+    renderNewMembers();
+    renderModerators();
+    renderSeason();
+    renderNews();
+    renderGallery();
+    renderFaq();
+    renderDonate();
+    
+    setTimeout(animateCounters, 2000);
+    
+    let visits = parseInt(localStorage.getItem('ptVisits') || '1248');
+    document.getElementById('visitCount').innerText = visits;
+    localStorage.setItem('ptVisits', visits + 1);
+});
 </script>
 </body>
 </html>
